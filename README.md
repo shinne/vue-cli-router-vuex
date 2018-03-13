@@ -12,7 +12,10 @@ a simple demo by useing vue-cli, router and vuex
 npm install
 
 # serve with hot reload at localhost:8080
-npm run dev
+npm run proxy
+
+# serve with hot reload at localhost:8080 by mock data
+npm run mock
 
 # build for production with minification
 npm run build
