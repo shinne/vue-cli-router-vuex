@@ -15,5 +15,8 @@ export default new Vuex.Store({
     userName: 'youtingting'
   },
   mutations: {
+    test: function () {
+      console.log('我是一个公共用的commit')
+    }
   }
 })

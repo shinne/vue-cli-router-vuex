@@ -10,6 +10,9 @@ const getters = {
       }
     })
     return scoreAcc
+  },
+  selectScoreLength: (state, getters) => {
+    return getters.selectedScoreList.length
   }
 }
 export default getters

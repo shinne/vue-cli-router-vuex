@@ -6,8 +6,8 @@
     </div>
 
     <div class="selected-wrap">
-      <strong>这是您当前选中的权益</strong>
-      <strong>共需要 <span style="color:red;">{{ scoreAcc }}</span>分</strong>
+      <strong>您当前选中 <span style="color: red;">{{selectScoreLength}}</span> 特权</strong>
+      <strong>共需要 <span style="color:red;">{{ scoreAcc }}</span>积分</strong>
       <strong>点击保存按钮进行保存</strong>
       <ul>
         <li class="select-li" v-for="score in selectedScoreList">
@@ -39,7 +39,8 @@ export default {
     }),
     ...mapGetters([
       'selectedScoreList',
-      'scoreAcc'
+      'scoreAcc',
+      'selectScoreLength'
     ])
   },
   watch: {
