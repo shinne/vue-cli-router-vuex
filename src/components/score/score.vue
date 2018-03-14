@@ -27,7 +27,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import * as types from '../../store/modules/scores/mutationsType'
+import * as types from '../../store/scores/mutationsType'
 export default {
 
   computed: {

@@ -1,4 +1,4 @@
-import api from '../../../api/score'
+import api from '../../api/score'
 import * as types from './mutationsType'
 
 const actions = {

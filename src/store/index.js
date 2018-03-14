@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import home from './modules/home'
-import rights from './modules/rights'
-import scores from './modules/scores'
+import home from './home'
+import rights from './rights'
+import scores from './scores'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -15,8 +15,5 @@ export default new Vuex.Store({
     userName: 'youtingting'
   },
   mutations: {
-    selectNav (state, curPage) {
-      state.curPage = curPage
-    }
   }
 })
