@@ -2,9 +2,9 @@
   <div class="">
     <div class="header">一直都在的头部,&nbsp;&nbsp;&nbsp;用户名{{userName}}</div>
     <ul class="header-nav">
-      <li><router-link :to="{name:'Home'}" :class="{'active':curPage=='home' }">我是主页</router-link></li>
-      <li><router-link :to="{name:'Score'}" :class="{'active':curPage=='score' }">我是分数页面</router-link></li>
-      <li><router-link :to="{name:'RightsList'}" :class="{'active':curPage=='rightsList' }">我是权益页面</router-link></li>
+      <li><router-link :to="{name:'Home'}">我是主页</router-link></li>
+      <li><router-link :to="{name:'Score'}">我是分数页面</router-link></li>
+      <li><router-link :to="{name:'RightsList'}">我是权益页面</router-link></li>
     </ul>
   </div>
 </template>

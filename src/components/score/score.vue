@@ -16,9 +16,11 @@
       </ul>
     </div>
     <button v-on:click="saveScore">保存</button>
-    <div v-show="showMsg" v-bind:class="[{success:saveSuccess}, 'toast']" v-on:click ="toastToggle" ref = 'toast'>
-      {{saveMsg}}
-    </div>
+    <transition name="msg">
+      <div v-show="showMsg" v-bind:class="[{success:saveSuccess}, 'toast']" v-on:click ="toastToggle" ref = 'toast'>
+        {{saveMsg}}
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -38,6 +40,16 @@ export default {
       'selectedScoreList'
     ])
   },
+  watch: {
+    showMsg () {
+      if (this.showMsg) {
+        let self = this
+        setTimeout(function () {
+          self.$store.commit(types.CLOSE_TOAST)
+        }, 2000)
+      }
+    }
+  },
   methods: {
     saveScore () {
       if (this.selectedScoreList && this.selectedScoreList.length > 0) {
@@ -51,7 +63,6 @@ export default {
     }
   },
   created () {
-    this.$store.commit('selectNav', 'score')
     this.$store.dispatch('getScoreList', {id: 12})
   }
 }
