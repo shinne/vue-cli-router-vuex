@@ -7,17 +7,18 @@
 
     <div class="selected-wrap">
       <strong>这是您当前选中的权益</strong>
-      <strong>共需要分</strong>
+      <strong>共需要 <span style="color:red;">{{ scoreAcc }}</span>分</strong>
       <strong>点击保存按钮进行保存</strong>
       <ul>
-        <li v-for="score in selectedScoreList">
-        {{score.name}}
-      </li>
+        <li class="select-li" v-for="score in selectedScoreList">
+          <span>{{score.name}}</span>
+          <i class="del-icon" v-on:click="delRights(score.id)"></i>
+        </li>
       </ul>
     </div>
     <button v-on:click="saveScore">保存</button>
     <transition name="msg">
-      <div v-show="showMsg" v-bind:class="[{success:saveSuccess}, 'toast']" v-on:click ="toastToggle" ref = 'toast'>
+      <div v-show="showMsg" v-bind:class="[{success:saveSuccess}, 'toast']" v-on:click ="closeToast" ref = 'toast'>
         {{saveMsg}}
       </div>
     </transition>
@@ -37,7 +38,8 @@ export default {
       saveMsg: state => state.scores.saveMsg
     }),
     ...mapGetters([
-      'selectedScoreList'
+      'selectedScoreList',
+      'scoreAcc'
     ])
   },
   watch: {
@@ -58,8 +60,11 @@ export default {
         alert('请选择您需要的特权')
       }
     },
-    toastToggle () {
+    closeToast () {
       this.$store.commit(types.CLOSE_TOAST)
+    },
+    delRights (id) {
+      this.$store.commit(types.DELETE_RIGHTS_BY_ID, id)
     }
   },
   created () {
@@ -67,6 +72,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped="">
-  @import url("../../../static/css/score.scss");
+
+<style lang="scss" scoped>
+  @import "../../../static/css/score.scss";
 </style>

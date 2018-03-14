@@ -13,6 +13,11 @@ const mutations = {
   },
   [types.CLOSE_TOAST] (state, {...result}) {
     state.showMsg = false
+  },
+  [types.DELETE_RIGHTS_BY_ID] (state, id) {
+    state.scoreList.forEach((score) => {
+      score.id === id ? score.checked = false : ''
+    })
   }
 }
 
