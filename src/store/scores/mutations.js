@@ -9,7 +9,6 @@ const mutations = {
     state.showMsg = result.showMsg
     state.saveSuccess = result.saveSuccess
     state.saveMsg = result.saveMsg
-    console.log(state)
   },
   [types.CLOSE_TOAST] (state, {...result}) {
     state.showMsg = false
