@@ -1,4 +1,5 @@
 import axios from 'axios'
+import store from '../store/index'
 
 export default {
   getUserInfo (params,successFn) {
@@ -12,6 +13,8 @@ export default {
       }
     })
       .then(function (response) {
+        store.commit('test')
+        console.log(response)
         successFn(response.data.content)
       })
       .catch(function (error) {

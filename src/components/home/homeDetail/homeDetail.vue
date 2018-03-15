@@ -18,7 +18,7 @@ export default {
   },
   created () {
     this.$store.dispatch('getUserInfo', 'home')
-    this.$store.commit('test')
+    /*this.$store.commit('test')*/
   }
 }
 </script>

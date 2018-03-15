@@ -1,0 +1,2 @@
+export const LOADING_SHOW = 'LOADING_SHOW'
+export const LOADING_CLOSE = 'LOADING_CLOSE'

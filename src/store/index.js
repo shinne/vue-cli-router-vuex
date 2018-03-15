@@ -3,13 +3,15 @@ import Vuex from 'vuex'
 import home from './home'
 import rights from './rights'
 import scores from './scores'
+import loading from './loading'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
   modules: {
     home,
     rights,
-    scores
+    scores,
+    loading
   },
   state: {
     userName: 'youtingting'
