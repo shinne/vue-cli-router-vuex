@@ -1,7 +1,6 @@
 {
-  "code":1,//to change it ,and it will login failed
+  "code":1,
   "content":{
     "token":"我是一个token"
   }
-
 }

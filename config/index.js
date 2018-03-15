@@ -20,11 +20,11 @@ module.exports = {
       }
     },*/
     mockTable: {
-      // scoreDetail
       '/getUserInfo': '/mock/userInfo.json',
       '/getRightImgs':'/mock/rightImgs.json',
       '/getScoreList':'/mock/scoreList.json',
       '/saveScoreList':'/mock/saveScore.json',
+      //change login.json code ,and it will login failed
       '/login':'/mock/login.json'
     },
 
