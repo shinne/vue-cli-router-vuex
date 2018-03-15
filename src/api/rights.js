@@ -1,17 +1,17 @@
-import axios from 'axios'
+import axiosEnc from '../lib/axiosEnc'
 
 export default {
-  getRightsImgs (params, successFn) {
-    axios({
+  getRightsImgs (params, successFn,errorFn) {
+    axiosEnc.ajax({
       method: 'get',
       url: '/getRightImgs',
-      responseType: 'json'
+      responseType: 'json',
+      success: function (data) {
+        successFn(data.content)
+      },
+      error: function (data) {
+        errorFn(data.content)
+      }
     })
-      .then(function (response) {
-        successFn(response.data.content)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
   }
 }

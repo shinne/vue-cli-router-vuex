@@ -1,5 +1,8 @@
 import axios from 'axios'
 import assign from 'lodash.assign'
+import store from '../store/index'
+import * as loadingTypes from '../store/loading/mutationsType'
+import * as toastTypes from '../store/errorToast/mutationsType'
 
 axios.interceptors.request.use(function (config) {
   var params = {
@@ -16,7 +19,6 @@ axios.interceptors.request.use(function (config) {
 var axiosEnc = {
   defaultCfg: {
     method: 'post',
-    /*headers: {'X-Requested-With': 'XMLHttpRequest'},*/
     // 网络异常，提示框
     errorToast: true,
     // 是否打开loading
@@ -25,15 +27,18 @@ var axiosEnc = {
     success: function () {},
     error: function () {}
   },
-  send (cfg){
+  ajax (cfg) {
     var opt = assign({}, this.defaultCfg, cfg)
-    /*opt.showLoading && store.commit("")*/
+    opt.showLoading && store.commit(loadingTypes.LOADING_SHOW)
     axios(opt)
       .then(function (axios) {
-        openLoading
+        opt.showLoading && store.commit(loadingTypes.LOADING_CLOSE)
+        axios.config.success(axios.data)
       })
       .catch(function (axios) {
-
+        opt.showLoading && store.commit(loadingTypes.LOADING_CLOSE)
+        opt.errorToast && store.commit(toastTypes.TOAST_SHOW)
+        axios.config.error(axios.data)
       })
   }
 }

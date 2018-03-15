@@ -1,32 +1,33 @@
-import axios from 'axios'
+import axiosEnc from '../lib/axiosEnc'
 
 export default {
   getScoreList (params, successFn, errorFn) {
-    axios({
+    axiosEnc.ajax({
       method: 'get',
       url: '/getScoreList',
       responseType: 'json',
-      params: params
+      params: params,
+      success:function (data) {
+        successFn(data.content)
+      },
+      error:function(data){
+        errorFn(data.content)
+      }
+
     })
-      .then(function (response) {
-        successFn(response.data.content)
-      })
-      .catch(function (error) {
-        errorFn(error)
-      })
   },
   saveScoreList (params, successFn, errorFn) {
-    axios({
+    axiosEnc.ajax({
       method: 'get',
       url: '/saveScoreList',
       responseType: 'json',
-      params: params
+      params: params,
+      success: function (data) {
+        successFn(data.content)
+      },
+      error: function (data) {
+        errorFn(data)
+      }
     })
-      .then(function (response) {
-        successFn(response.data.content)
-      })
-      .catch(function (error) {
-        errorFn(error)
-      })
   },
 }

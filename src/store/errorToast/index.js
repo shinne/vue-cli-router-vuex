@@ -3,7 +3,7 @@ import actions from './actions'
 import getters from './getters'
 
 const state = {
-  showLoading: false
+  showErrorToast: false
 }
 
 export default {

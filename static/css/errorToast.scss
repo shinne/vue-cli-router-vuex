@@ -1,0 +1,19 @@
+.err-toast-wrap{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left:0;
+  z-index:2;
+  background: transparent url("/static/assets/imgs/err-toast.png") no-repeat center;
+}
+
+.err-toast-enter-active {
+  transition: all .2s ease;
+}
+.err-toast-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.err-toast-enter, .err-toast-leave-active {
+  opacity: 0;
+}

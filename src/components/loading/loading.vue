@@ -3,10 +3,6 @@
   </div>
 </template>
 
-<style lang="scss">
-  @import "../../../static/css/headerTop.scss";
-</style>
-
 <script>
 import { mapState } from 'vuex'
 export default {
@@ -19,3 +15,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import "../../../static/css/loading.scss";
+</style>

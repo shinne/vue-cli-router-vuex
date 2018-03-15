@@ -4,6 +4,7 @@ import home from './home'
 import rights from './rights'
 import scores from './scores'
 import loading from './loading'
+import errorToast from './errorToast'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -11,7 +12,8 @@ export default new Vuex.Store({
     home,
     rights,
     scores,
-    loading
+    loading,
+    errorToast
   },
   state: {
     userName: 'youtingting'
