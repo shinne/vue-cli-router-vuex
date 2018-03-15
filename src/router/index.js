@@ -4,14 +4,20 @@ import Home from '@/components/home/home'
 import HomeDetail from '@/components/home/homeDetail/homeDetail'
 import Score from '@/components/score/score'
 import RightsList from '@/components/rightsList/rightsList'
+import login from '@/components/login/login'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '',
-      redirect: '/home'
+      path: '/',
+      redirect: '/login'
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: login
     },
     {
       path: '/home',

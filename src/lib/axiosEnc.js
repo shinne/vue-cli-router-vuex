@@ -6,7 +6,7 @@ import * as toastTypes from '../store/errorToast/mutationsType'
 
 axios.interceptors.request.use(function (config) {
   var params = {
-    token: 'just test token'
+    token: window.token
   }
   if (config.params) {
     assign(config.params, params)

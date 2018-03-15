@@ -25,6 +25,7 @@ module.exports = {
       '/getRightImgs':'/mock/rightImgs.json',
       '/getScoreList':'/mock/scoreList.json',
       '/saveScoreList':'/mock/saveScore.json',
+      '/login':'/mock/login.json'
     },
 
     // Various Dev Server settings
