@@ -5,10 +5,10 @@ import HomeDetail from '@/components/home/homeDetail/homeDetail'
 import Score from '@/components/score/score'
 import RightsList from '@/components/rightsList/rightsList'
 import login from '@/components/login/login'
-
+import store from '../store'
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -23,6 +23,9 @@ export default new Router({
       path: '/home',
       name: 'Home',
       component: Home,
+      meta: {
+        requireAuth: true
+      },
       children: [
         {
           path: '/home/homeDetail',
@@ -34,12 +37,37 @@ export default new Router({
     {
       path: '/score',
       name: 'Score',
-      component: Score
+      component: Score,
+      meta: {
+        requireAuth: true
+      }
     },
     {
       path: '/rightsList',
       name: 'RightsList',
-      component: RightsList
+      component: RightsList,
+      meta: {
+        requireAuth: true
+      }
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requireAuth) {
+    if (window.token) {
+      next()
+    }
+    else {
+      next({
+        path: '/login',
+        query: {redirect: to.fullPath}
+      })
+    }
+  }
+  else {
+    next()
+  }
+})
+
+export default router

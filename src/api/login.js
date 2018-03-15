@@ -8,7 +8,11 @@ export default {
       responseType: 'json',
       params: params,
       success: function (data) {
-        successFn(data.content)
+        if (data.code === 1) {
+          successFn(data.content)
+        } else {
+          errorFn(data.content)
+        }
       },
       error: function (data) {
         errorFn(data.content)
