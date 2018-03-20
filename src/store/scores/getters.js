@@ -11,7 +11,8 @@ const getters = {
     })
     return scoreAcc
   },
-  selectScoreLength: (state, getters) => {
+  //getters has three params, state,getters,rootState
+  selectScoreLength: (state, getters, rootState) => {
     return getters.selectedScoreList.length
   }
 }
