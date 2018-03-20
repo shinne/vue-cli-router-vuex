@@ -70,6 +70,13 @@ export default {
   },
   created () {
     this.$store.dispatch('getScoreList', {id: 12})
+     // score页面也可以访问 rightsImgs页面的内容
+//     this.$store.commit('GET_RIGHTS_IMGS', {rightsImgs: [
+//     {
+//        src: 'http://img3.imgtn.bdimg.com/it/u=1284994643,3602905021&fm=214&gp=0.jpg',
+//        id: 1
+//      }
+//     ]})
   }
 }
 </script>
