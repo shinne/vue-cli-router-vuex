@@ -17,7 +17,7 @@
 import { mapState } from 'vuex'
 export default {
   computed: mapState({
-    userName: state => state.userName
+    userName: state => state.login.userName
   }),
   methods: {
   },
