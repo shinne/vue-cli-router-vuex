@@ -1,8 +1,8 @@
 <template>
   <div class="login-body">
     <div class="login-wrap">
-      <input type="text" placeholder="input name" v-model="pageUserName" ref="nameRef"/>
-      <input type="password" placeholder="input password" v-model="pagePassword" ref="passRef"/>
+      <input type="text" placeholder="input name" v-model="userName" ref="nameRef"/>
+      <input type="password" placeholder="input password" v-model="password" ref="passRef"/>
       <button v-on:click = 'login'>确认提交</button>
     </div>
   </div>
@@ -15,26 +15,24 @@ export default {
   computed: {
     ...mapState({
       userName: state => state.login.userName,
-      password: state => state.login.password,
       loginSuccess: state => state.login.loginSuccess
     }),
-    pageUserName: {
+    userName: {
       get: function () {
-        return this.userName
+        return this.$store.state.login.userName
       },
       set: function (val) {
         this.$store.commit(types.SET_USER_NAME, val)
       }
     },
-    pagePassword: {
+    password: {
       get: function () {
-        return this.password
+        return this.$store.state.login.password
       },
       set: function (val) {
         this.$store.commit(types.SET_USER_PASSWORD, val)
       }
     }
-
   },
   methods: {
     login(){
