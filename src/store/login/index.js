@@ -3,8 +3,8 @@ import actions from './actions'
 import getters from './getters'
 
 const state = {
-  userName: '',
-  password: '',
+  userName: 'shinneyou',
+  password: '666666',
   loginSuccess: false
 }
 
